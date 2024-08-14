@@ -69,10 +69,10 @@ class LoginController extends Controller
     public function actionView($id)
     {
 
-        if (Utils::role('SYSTEM ADMINISTRATOR')) {
+        if (Utils::role('DEVELOPER')) {
             $hakakses = Systemrole::find()->orderBy("nama_role")->all();
         } else {
-            $hakakses = Systemrole::find()->orderBy("nama_role")->where(['!=', 'nama_role', 'SYSTEM ADMINISTRATOR'])->all();
+            $hakakses = Systemrole::find()->orderBy("nama_role")->where(['!=', 'nama_role', 'DEVELOPER'])->all();
         }
 
         return $this->render('view', [
@@ -254,7 +254,6 @@ class LoginController extends Controller
     {
         $model = Login::findOne($id);
 
-        // var_dump($model); exit;
 
         if ( $_POST['password1'] != $_POST['password2'] ) {
             
@@ -266,6 +265,8 @@ class LoginController extends Controller
             $model->foto = UploadedFile::getInstance($model, 'foto');
             
             $model->password = md5($_POST['password1']);
+            
+            // var_dump(md5($_POST['password1'])); exit;
             $model->save(false);
 
             Yii::$app->session->setFlash('success', 'Diubah');

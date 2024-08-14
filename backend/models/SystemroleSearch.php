@@ -6,6 +6,7 @@ use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use backend\models\Systemrole;
+use yii\helpers\Utils;
 
 /**
  * SystemroleSearch represents the model behind the search form of `backend\models\Systemrole`.
@@ -42,7 +43,12 @@ class SystemroleSearch extends Systemrole
     public function search($params)
     {
         $query = Systemrole::find();
-        $query->orderBy('id_system_role DESC');
+        if (Utils::role('DEVELOPER')) {
+            $query->orderBy('id_system_role DESC');
+        } else {
+            $query->where(['!=', 'nama_role', 'DEVELOPER']);
+            $query->orderBy('id_system_role DESC');
+        }
 
         // add conditions that should always apply here
 

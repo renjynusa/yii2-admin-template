@@ -11,8 +11,11 @@
 
               <div class="auth" data-flashdata="<?= Yii::$app->session->getFlash('auth') ?>"></div>
 
-              <img src="<?= Yii::$app->request->baseUrl.'/image/logo-cito.jpg' ?>" alt="logo">
-              <h1 class="login-heading mb-4">Selamat Datang, <br> <b>CDU LABKESMAS</b></h1>
+              <div class="logo-container">
+                <img src="<?= Yii::$app->request->baseUrl.'/image/logo-login1.png' ?>" alt="logo" class="logo-left">
+                <img src="<?= Yii::$app->request->baseUrl.'/image/logo-login2.png' ?>" alt="logo" class="logo-right">
+              </div>
+              <h1 class="login-heading mb-4">Selamat Datang, <br> <b><?=  Yii::$app->name ?></b></h1>
 
               
 

@@ -97,12 +97,12 @@ $this->params['breadcrumbs'][] = $this->title;
                     <?= DetailView::widget([
                         'model' => $model,
                         'attributes' => [
-                            'id_menu',
+                            // 'id_menu',
                             'nama_menu',
-                            'url:url',
-                            'id_parent',
-                            'no_urut',
-                            'icon',
+                            // 'url:url',
+                            // 'id_parent',
+                            // 'no_urut',
+                            // 'icon',
                             [
                                 'attribute' => 'status',
                                 'format'    => 'raw',
@@ -180,15 +180,22 @@ $this->params['breadcrumbs'][] = $this->title;
                                     }
                                 ],
                                 'nama_menu',
-                                'url',
                                 [
                                     'attribute' => 'parent',
+                                    'visible'   => Utils::role('DEVELOPER') ? true : false,
                                     'value'     => function ($model) {
                                         return $model->parent == "" ? "" : $model->parent;
                                     }
                                 ],
-                                'no_urut',
-                                'icon',
+                                [
+                                    'attribute' => 'parent',
+                                    'label'     => 'Menu Utama',
+                                    'value'     => function ($model) {
+                                        return $model->parent == "" ? "" : $model->parent;
+                                    }
+                                ],
+                                // 'no_urut',
+                                // 'icon',
                                 [
                                     'class' => 'kartik\grid\BooleanColumn',
                                     'attribute' => 'status',

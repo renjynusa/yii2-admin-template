@@ -5,11 +5,17 @@ use backend\models\Systemrole;
 use backend\models\Userrole;
 use backend\models\MenuNavigasi;
 use backend\models\MenuNavigasiRole;
+
+if (!file_exists('image/navlogo.jpg')) {
+    $images = "image/image-not-found.jpg";
+} else {
+    $images = "image/navlogo.jpg";
+}
 ?>
 <aside class="main-sidebar elevation-4 sidebar-light-teal">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link bg-teal" style="line-height: 2.5">
-        <img src="image/logo-cito.jpg" alt="<?=  Yii::$app->name ?>" class="brand-image img-circle elevation-3" style="opacity: .8; margin-top: 3px; max-height: 40px">
+    <a href="<?=\yii\helpers\Url::home()?>" class="brand-link bg-teal" style="line-height: 2.5">
+        <img src="<?= $images ?>" alt="<?=  Yii::$app->name ?>" class="brand-image img-circle elevation-3" style="opacity: .8; margin-top: 3px; max-height: 40px">
         <span class="brand-text font-weight-dark text-dark"><?= Yii::$app->name ?></span>
 
     </a>
@@ -107,7 +113,7 @@ use backend\models\MenuNavigasiRole;
 
             // Buat item-menu dengan menggunakan template
             $strMenu[] = [
-                'label' => 'CITO LABKESMAS',
+                'label' => Yii::$app->name,
                 // 'icon' => 'nav-icon fas fa-circle',
                 // 'url' => '#',
                 'options' => ['class' => 'nav-header'],

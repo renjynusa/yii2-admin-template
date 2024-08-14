@@ -5,6 +5,7 @@ use yii\helpers\Html;
 //use yii\grid\GridView;
 use kartik\grid\GridView;
 use yii\helpers\Url;
+use yii\helpers\Utils;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\MenuNavigasiSearch */
@@ -54,17 +55,22 @@ $this->params['breadcrumbs'][] = $this->title;
                 ],
                 'urlCreator' => function ($action, $model, $key, $index) {
                     if ($action === 'view') {
-                        $url = 'index.php?r=menu-navigasi/view&id=' . $model->id_menu;
+                        $url = 'index.php?r='. Yii::$app->controller->id  .'/view&id=' . $model->id_menu;
                         return $url;
                     }
                 }
             ],
 
             'nama_menu',
-            'url',
-
-            'no_urut',
-            'icon',
+            [
+                'attribute' => 'url',
+                'format'    => 'raw',
+                'visible'    => Utils::role('DEVELOPER') ? true : false,
+                'vAlign' => 'middle',
+                'value'     => function ($model) {
+                    return $model->url ;
+                }
+            ],
             
             [
                 'class' => 'kartik\grid\BooleanColumn',
