@@ -12,7 +12,7 @@ if (!file_exists('image/navlogo.jpg')) {
     $images = "image/navlogo.jpg";
 }
 ?>
-<aside class="main-sidebar elevation-4 sidebar-light-teal">
+<aside class="main-sidebar elevation-4 sidebar-light-primary">
     <!-- Brand Logo -->
     <a href="<?=\yii\helpers\Url::home()?>" class="brand-link bg-teal" style="line-height: 2.5">
         <img src="<?= $images ?>" alt="<?=  Yii::$app->name ?>" class="brand-image img-circle elevation-3" style="opacity: .8; margin-top: 3px; max-height: 40px">

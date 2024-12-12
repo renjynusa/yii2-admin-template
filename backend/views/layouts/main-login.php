@@ -47,55 +47,97 @@ $this->registerCssFile('https://code.ionicframework.com/ionicons/2.0.1/css/ionic
 <?php $this->endPage() ?>
 
 <style>
-    .login {
-    min-height: 100vh;
+    body {
+        margin: 0;
     }
 
-    .bg-image {
-    background-image: url('image/bg-login.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 100%; /* Menyesuaikan lebar dengan monitor */
-    height: 100vh; /* Menyesuaikan tinggi dengan tinggi viewport */
+    .left-section {
+        background: url('image/bg.jpg') no-repeat;
+        background-size: cover;
+        position: relative;
     }
 
-    .login-heading {
-    font-weight: 300;
+    .left-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        background: linear-gradient(to bottom, #161d4a, #222a57);
+        opacity: 0.6;
+        z-index: 1;
     }
 
-    .btn-login {
-    font-size: 0.9rem;
-    letter-spacing: 0.05rem;
-    padding: 0.75rem 1rem;
+    .left-section > div {
+        position: relative;
+        z-index: 2;
     }
 
-    img {
-    border-radius: 50%;
-    width: 200px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    }
-
-    img {
-    /* border-radius: 50%; */
-    width: 200px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    }
-
-    .logo-container {
+    .login-container {
+        min-height: 100vh;
         display: flex;
-        justify-content: space-between;
         align-items: center;
+        justify-content: center;
+        position: relative;
+        z-index: 2;
     }
 
-    .logo-left,
-    .logo-right {
-        max-width: 45%; /* Sesuaikan ukuran sesuai kebutuhan */
-        height: auto; /* Memastikan gambar tetap responsif */
+    .login-form {
+        background-color: white;
+        padding: 2rem;
+        max-width: 500px;
+        width: 100%;
     }
 
+    .login-form h1 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+
+    .logo {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .logo img {
+        max-width: 150px;
+    }
+
+    .text-brand {
+        color: #ffffff;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+
+    .footer-text {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        font-size: 18px;
+        color: #ffffff;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        font-weight: bold;
+        z-index: 3; /* Tambahkan z-index lebih tinggi */
+    }
+
+    .info-button {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 4;
+        background: transparent;
+        border: 1px solid white;
+        color: black;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    .info-button:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
 </style>

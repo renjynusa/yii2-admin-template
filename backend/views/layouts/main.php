@@ -41,7 +41,7 @@ if (Yii::$app->user->isGuest) {
     </head>
 
     <!-- <body class="hold-transition sidebar-mini sidebar-collapse"> -->
-    <body class="sidebar-mini layout-fixed">
+    <body class="sidebar-mini layout-navbar-fixed layout-fixed">
         
         
         <?php $this->beginBody() ?>

@@ -9,8 +9,20 @@
 # General
 --------------------------------------------------------------*/
 body {
-  font-family: "Open Sans", sans-serif;
-  color: #444444;
+  /* font-family: "Open Sans", sans-serif;
+  color: #444444; */
+
+  position: relative;
+  z-index: 1;
+  background-color: #f0f0f0; /* Asumsi bg-whiten adalah warna putih sedikit keabu-abuan */
+  background-color: white !important; /* Untuk print */
+  font-family: 'Open Sans', 'Open Sans Fallback: Arial', sans-serif !important;
+  font-size: 16px; /* Asumsi text-base adalah 16px */
+  font-weight: normal;
+  color: #333; /* Asumsi text-body adalah warna abu-abu gelap */
+  color: #111; /* Asumsi text-bodydark adalah warna hitam */
+  background-color: #222; /* Asumsi bg-boxdark-2 adalah warna abu-abu gelap */
+
 }
 
 a {

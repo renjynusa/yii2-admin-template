@@ -1,63 +1,54 @@
 
 
-<div class="container-fluid ps-md-0">
-  <div class="row g-0">
-    <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
-    <div class="col-md-8 col-lg-6">
-      <div class="login d-flex align-items-center py-5">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-9 col-lg-8 mx-auto">
+<div class="container-fluid">
+<div class="row">
+            <!-- Left section -->
+            
+            <div class="auth" data-flashdata="<?= Yii::$app->session->getFlash('auth') ?>"></div>
 
-              <div class="auth" data-flashdata="<?= Yii::$app->session->getFlash('auth') ?>"></div>
+            <div class="col-md-8 d-none d-md-flex align-items-center justify-content-center text-center text-white left-section">
+                <div>
+                    <div class="logo">
+                        <img src="image/logo.webp" alt="Logo">
+                    </div>
+                    <h5 class="text-brand">PEMERINTAH PROVINSI JAWA TENGAH</h5>
+                    <h2 class="text-brand">Sistem Informasi Pemungutan Pajak Alat Berat (PAB)</h2>
+                </div>
+            </div>
 
-              <div class="logo-container">
-                <img src="<?= Yii::$app->request->baseUrl.'/image/logo-login1.png' ?>" alt="logo" class="logo-left">
-                <img src="<?= Yii::$app->request->baseUrl.'/image/logo-login2.png' ?>" alt="logo" class="logo-right">
-              </div>
-              <h1 class="login-heading mb-4">Selamat Datang, <br> <b><?=  Yii::$app->name ?></b></h1>
-
-              
-
-                <?php
+            <!-- Right section -->
+            <div class="col-md-4 login-container">
+                <div class="login-form">
+                    
+                    <h1>Login</h1>
+                    <p class="text-center">masukan username dan password anda untuk login</p>
+                    
+                    <?php
 
                 
 
-                use yii\helpers\Html;
+                      use yii\helpers\Html;
 
-                $form = \yii\bootstrap4\ActiveForm::begin(['id' => 'login-form']) ?>
+                      $form = \yii\bootstrap4\ActiveForm::begin(['id' => 'login-form']) ?>
 
-                <?= $form->field($model,'username', [
-                    'options' => ['class' => 'form-group has-feedback'],
-                    'inputTemplate' => '{input}<div class="input-group-append"><div class="input-group-text"><span class="fas fa-user"></span></div></div>',
-                    'template' => '{beginWrapper}{input}{error}{endWrapper}',
-                    'wrapperOptions' => ['class' => 'input-group mb-3']
-                ])
-                    ->label(false)
-                    ->textInput(['placeholder' => $model->getAttributeLabel('username'), 'class' => 'form-control form-control-lg']) ?>
+                      <?= $form->field($model,'username', [
+                          'options' => ['class' => 'form-group has-feedback']
+                      ])
+                          ->textInput(['placeholder' => $model->getAttributeLabel('username'), 'class' => 'form-control form-control']) ?>
 
-                <?= $form->field($model, 'password', [
-                    'options' => ['class' => 'form-group has-feedback'],
-                    'inputTemplate' => '{input}<div class="input-group-append"><div class="input-group-text"><span class="fas fa-lock"></span></div></div>',
-                    'template' => '{beginWrapper}{input}{error}{endWrapper}',
-                    'wrapperOptions' => ['class' => 'input-group mb-3']
-                ])
-                    ->label(false)
-                    ->passwordInput(['placeholder' => $model->getAttributeLabel('password'), 'class' => 'form-control form-control-lg']) ?>
+                      <?= $form->field($model, 'password', [
+                          'options' => ['class' => 'form-group has-feedback'],
+                      ])
+                          ->passwordInput(['placeholder' => $model->getAttributeLabel('password'), 'class' => 'form-control form-control']) ?>
 
-                <div class="row">
-                    
-                    <div class="col-4">
-                        <?= Html::submitButton('Sign In', ['class' => 'btn btn-primary btn-block']) ?>
-                    </div>
-                </div>
+                      <?= Html::submitButton('Login <i class="fas fa-sign-in-alt"></i>', ['class' => 'btn btn-dark btn-block']) ?>
+                          
 
                 <?php \yii\bootstrap4\ActiveForm::end(); ?>
-            
+                </div>
             </div>
-          </div>
+
+        <p class="text-brand footer-text">Berdasarkan Peraturan Daerah Jawa Tengah No. 12/2023 Tentang Pajak Dan Retribusi Daerah</p>
+        <button class="info-button">Info NJAB</button>
         </div>
-      </div>
-    </div>
-  </div>
 </div>
